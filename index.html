@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Campus UCH</title>
-  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="./css/estilo_main.css">
 </head>
 <body>
   <!-- NAVBAR -->
@@ -53,9 +53,9 @@
       <!-- botón de cerrar -->
       <span class="close" id="closeModal">&times;</span>
       <h2>Inicie sesión en su cuenta</h2>
-      <form>
-        <input type="text" placeholder="Usuario" required>
-        <input type="password" placeholder="Contraseña" required>
+      <form action="./php/sesion.php" method="POST">
+        <input type="text" placeholder="Usuario" name="usuario" required>
+        <input type="password" placeholder="Contraseña" name="password" required>
         <div class="options">
           <label><input type="checkbox"> Recordar nombre de usuario</label>
           <a href="#">¿Olvidó su contraseña?</a>
