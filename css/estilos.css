@@ -1,0 +1,287 @@
+/* Reset / base ----------------------------------------------------------- */
+
+/* Elimina márgenes y paddings por defecto y define box-sizing para todo */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Estilos base del documento: fuente por defecto y color de texto */
+body {
+  font-family: Arial, Helvetica, sans-serif; /* fuente usada */
+  color: #333; /* color principal de texto */
+  background: #ffffff; /* fondo por defecto (se verá el hero arriba) */
+  -webkit-font-smoothing: antialiased; /* suaviza tipografía en WebKit */
+  -moz-osx-font-smoothing: grayscale; /* suaviza tipografía en Firefox/OSX */
+  line-height: 1.4; /* altura de línea por defecto */
+}
+
+/* NAVBAR ---------------------------------------------------------------- */
+
+/* Contenedor principal de la barra superior */
+.navbar {
+  display: flex; /* layout flexible para alinear left y right */
+  justify-content: space-between; /* separación entre ambos extremos */
+  align-items: center; /* alinear verticalmente contenido */
+  padding: 16px 40px; /* espacio interno arriba/abajo y laterales */
+  background-image:
+    linear-gradient(90deg, rgba(76,36,141,0.85), rgba(10,104,209,0.75)),
+    url('img/hero-illustration.jpg'); /* fondo blanco levemente opaco */
+  border-bottom: 1px solid #e6e6e6; /* línea sutil separadora */
+  position: sticky; /* fija la navbar en la parte superior al hacer scroll */
+  top: 0; /* posición superior cuando es sticky */
+  z-index: 50; /* para que quede por encima del contenido */
+}
+
+/* Agrupa logo + brand + menú */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 28px; /* separación entre logo, brand y menú */
+}
+
+/* Logo: tamaño y comportamiento */
+.logo {
+  height: 60px; /* altura del logo */
+  width: auto; /* ancho automático para conservar proporción */
+  display: block; /* evitar espacio inline inesperado */
+}
+
+/* Texto de la marca junto al logo */
+.brand {
+  font-weight: 700; /* negrita */
+  color: #ffffff; /* color del texto del logo */
+  letter-spacing: 0.6px; /* separación entre letras */
+  font-size: 24px; /* tamaño del texto */
+  border-right: 2px solid rgba(255, 255, 255, 0.255); /* separador visual */
+  padding: 10px;
+}
+
+/* Menú principal (lista horizontal) */
+.menu {
+  list-style: none; /* quita los bullets */
+  display: flex; /* muestra los items en una fila */
+  gap: 20px; /* separación entre items */
+  align-items: center;
+}
+
+/* Estilo de los enlaces del menú */
+.menu a {
+  text-decoration: none; /* quita subrayado */
+  color: #ffffff; /* color del texto del menú */
+  font-size: 14px; /* tamaño de letra */
+  text-transform: uppercase; /* mayúsculas */
+  letter-spacing: 0.8px; /* espaciado de letras */
+  padding: 6px 4px; /* pequeño padding para que sea clickeable */
+}
+
+/* Contenedor derecho de la navbar */
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Enlace de login / registrarse */
+.login-link {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-left: 2px solid rgba(255, 255, 255, 0.255); /* separador visual */
+  padding: 10px;
+}
+
+/* ICON dentro del enlace (simple) */
+.login-link .icon {
+  font-size: 16px;
+}
+
+/* HERO / SLIDER --------------------------------------------------------- */
+
+/* Sección principal con fondo en degradado y una imagen ilustrativa */
+.hero {
+  /* combinamos un degradado con una imagen de ilustración centrada y cover */
+  background-image:
+    linear-gradient(90deg, rgba(76,36,141,0.85), rgba(10,104,209,0.75)),
+    url('img/hero-illustration.jpg');
+  background-size: cover; /* la imagen cubre todo el contenedor */
+  background-position: center center; /* centra la imagen */
+  color: #fff; /* texto en blanco encima del fondo oscuro */
+  text-align: center; /* centrado del texto */
+  padding: 200px 20px; /* espacio grande arriba/abajo para efecto "hero" */
+  position: relative; /* permite posiciones relativas dentro */
+}
+
+/* Título principal dentro del hero */
+.hero-title {
+  font-size: 40px; /* tamaño grande */
+  font-weight: 700; /* negrita */
+  margin-bottom: 18px; /* separación con el subtítulo */
+  max-width: 1000px; /* limitar ancho para no estirarse demasiado */
+  margin-left: auto; /* centra horizontalmente el bloque limitado */
+  margin-right: auto;
+  line-height: 1.08; /* line-height más compacto para títulos */
+}
+
+/* Subtítulo / descripción del hero */
+.hero-sub {
+  font-size: 16px; /* tamaño de texto secundario */
+  margin-bottom: 26px; /* espacio antes del botón */
+  opacity: 0.95; /* ligera transparencia para suavizar */
+}
+
+
+
+/* SECCIÓN "Cursos" ------------------------------------------------------ */
+
+/* Sección blanca que continúa debajo del hero */
+.cursos {
+  background: #fff; /* fondo blanco */
+  text-align: center; /* centra texto */
+  padding: 48px 20px; /* separaciones */
+}
+
+/* Título de la sección cursos */
+.cursos h2 {
+  font-size: 26px;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+/* párrafo descriptivo de la sección */
+.cursos p {
+  color: #666;
+  font-size: 15px;
+}
+
+/* FOOTER ---------------------------------------------------------------- */
+
+.site-footer {
+  background: #f8f8f8; /* fondo sutil en el footer */
+  border-top: 1px solid #e6e6e6; /* línea superior */
+  padding: 22px 20px; /* padding interno */
+  text-align: center; /* centro de texto */
+  margin-top: 100px; /* separación respecto al contenido anterior */
+  font-size: 14px; /* tamaño de texto */
+  color: #666; /* color gris del texto del footer */
+  margin-bottom: 0;
+}
+
+/* RESPONSIVE: reglas para pantallas pequeñas ----------------------------- */
+
+/* A menos de 900px: reducir tamaños y reorganizar menú */
+@media (max-width: 900px) {
+  .menu { display: none; /* ocultamos el menú largo en pantallas chicas */ }
+  .hero { padding: 72px 18px; } /* menos padding en hero */
+  .hero-title { font-size: 28px; } /* título más chico */
+}
+
+/* A menos de 480px: ajustes extra para móviles */
+@media (max-width: 480px) {
+  .navbar { padding: 12px 14px; } /* menos padding en navbar */
+  .brand { display: none; } /* ocultamos texto del brand si falta espacio */
+  .logo { height: 36px; } /* logo ligeramente más chico */
+  .hero-title { font-size: 22px; } /* título móvil */
+  .hero { padding: 56px 12px; } /* menos padding general */
+}
+
+
+/* MODAL LOGIN ------------------------------------------------------------ */
+
+/* Fondo oscuro */
+.modal {
+  display: none;              /* oculto por defecto */
+  position: fixed;            /* ocupa toda la pantalla */
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.818); /* fondo semitransparente */
+  justify-content: center;    /* centra horizontal */
+  align-items: center;        /* centra vertical */
+  z-index: 200;               /* por encima del resto */
+}
+
+/* Caja blanca del modal */
+.modal-content {
+  background: #fff;
+  padding: 40px 50px;
+  border-radius: 20px;
+  height: 350px;
+  width: 500px;           /* más angosto para que quede compacto */
+  text-align: left;       /* alineación más natural del formulario */
+  position: relative;
+  animation: fadeIn 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;              /* separación uniforme entre elementos */
+}
+
+/* Botón de cerrar (X) */
+.close {
+  position: absolute;
+  top: 15px; 
+  right: 20px;
+  font-size: 26px;
+  cursor: pointer;
+  color: #1e40af;
+}
+
+/* Título del modal */
+.modal-content h2 {
+  margin: 0 0 10px 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #222;
+  text-align: center;    /* centrado del título */
+}
+
+/* Inputs de usuario/contraseña */
+.modal-content input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+/* Opciones (recordar y link de contraseña) */
+.options {
+  display: flex;
+  justify-content: space-between; /* un lado checkbox, otro link */
+  align-items: center;            /* alineados en el centro */
+  font-size: 15px;
+  margin-top: 5px;
+}
+/* Checkbox alineado horizontal */
+.options label {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;         /* menos espacio entre el checkbox y el texto */
+    width: auto;      /* no forzar ancho que provoque wrapping */
+    white-space: nowrap; /* todo el texto en una sola línea */
+}
+
+.options a {
+  color: #e11d48;
+  text-decoration: none;
+}
+
+/* Botón de login */
+.btn-login {
+  width: 100%;
+  padding: 16px;
+  background: #1e40af; /* azul */
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.btn-login:hover { background: #162f7a; }
+
+/* Animación de fade */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
