@@ -10,6 +10,7 @@ $usuario = $_SESSION["nombre_usuario"];
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Campus UCH</title>
+  <link rel="icon" type="image/png" href="./../img/logo_uch.png">
   <link rel="stylesheet" href="./../css/estilo_main.css" />
 </head>
 <body>
@@ -21,7 +22,7 @@ $usuario = $_SESSION["nombre_usuario"];
       <ul class="menu">
         <li><a href="#">PÁGINA PRINCIPAL</a></li>
         <li><a href="#">AREA PERSONAL</a></li>
-        <li><a href="#">MIS CURSOS</a></li>
+        <li><a href="curso.php">MIS CURSOS</a></li>
         <li><a href="#">AYUDA</a></li>
         <li><a href="#">OTROS ACCESOS</a></li>
       </ul>

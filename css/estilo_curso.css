@@ -1,0 +1,240 @@
+/* Reset / base ----------------------------------------------------------- */
+
+/* Elimina márgenes y paddings por defecto y define box-sizing para todo */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Estilos base del documento: fuente por defecto y color de texto */
+body {
+  font-family: Arial, Helvetica, sans-serif; /* fuente usada */
+  color: #333; /* color principal de texto */
+  background: #ffffff; /* fondo por defecto (se verá el hero arriba) */
+  -webkit-font-smoothing: antialiased; /* suaviza tipografía en WebKit */
+  -moz-osx-font-smoothing: grayscale; /* suaviza tipografía en Firefox/OSX */
+  line-height: 1.4; /* altura de línea por defecto */
+}
+
+/* NAVBAR ---------------------------------------------------------------- */
+
+/* Contenedor principal de la barra superior */
+.navbar {
+  display: flex; /* layout flexible para alinear left y right */
+  justify-content: space-between; /* separación entre ambos extremos */
+  align-items: center; /* alinear verticalmente contenido */
+  padding: 16px 40px; /* espacio interno arriba/abajo y laterales */
+  background-image:
+    linear-gradient(90deg, rgba(76,36,141,0.85), rgba(10,104,209,0.75)),
+    url('img/hero-illustration.jpg'); /* fondo blanco levemente opaco */
+  border-bottom: 1px solid #e6e6e6; /* línea sutil separadora */
+  position: sticky; /* fija la navbar en la parte superior al hacer scroll */
+  top: 0; /* posición superior cuando es sticky */
+  z-index: 50; /* para que quede por encima del contenido */
+}
+
+/* Agrupa logo + brand + menú */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 28px; /* separación entre logo, brand y menú */
+}
+
+/* Logo: tamaño y comportamiento */
+.logo {
+  height: 60px; /* altura del logo */
+  width: auto; /* ancho automático para conservar proporción */
+  display: block; /* evitar espacio inline inesperado */
+}
+
+/* Texto de la marca junto al logo */
+.brand {
+  font-weight: 700; /* negrita */
+  color: #ffffff; /* color del texto del logo */
+  letter-spacing: 0.6px; /* separación entre letras */
+  font-size: 24px; /* tamaño del texto */
+  border-right: 2px solid rgba(255, 255, 255, 0.255); /* separador visual */
+  padding: 10px;
+}
+
+/* Menú principal (lista horizontal) */
+.menu {
+  list-style: none; /* quita los bullets */
+  display: flex; /* muestra los items en una fila */
+  gap: 20px; /* separación entre items */
+  align-items: center;
+}
+
+/* Estilo de los enlaces del menú */
+.menu a {
+  text-decoration: none; /* quita subrayado */
+  color: #ffffff; /* color del texto del menú */
+  font-size: 14px; /* tamaño de letra */
+  text-transform: uppercase; /* mayúsculas */
+  letter-spacing: 0.8px; /* espaciado de letras */
+  padding: 6px 4px; /* pequeño padding para que sea clickeable */
+}
+
+/* Contenedor derecho de la navbar */
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Enlace de login / registrarse */
+.login-link {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-left: 2px solid rgba(255, 255, 255, 0.255); /* separador visual */
+  padding: 10px;
+}
+
+/* ICON dentro del enlace (simple) */
+.login-link .icon {
+  font-size: 16px;
+}
+
+/* ----- Contenedor principal ----- */
+.cursos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 900px;
+  margin: 30px auto;
+}
+
+/* ----- Tarjeta individual ----- */
+.curso-card {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border: 0.5px solid #cbcbcb;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Imagen lateral */
+.curso-card img {
+  width: 200px;
+  height: 170px;
+  object-fit: cover;
+}
+
+/* Información */
+.curso-info {
+  flex: 1;
+  padding: 20px 25px;
+}
+
+.carrera {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.curso-info h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+/* Estado (Publicado y estrella) */
+.estado {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.publicado {
+  background: #16a34a;
+  color: white;
+  font-size: 0.85rem;
+  padding: 4px 10px;
+  border-radius: 5px;
+}
+
+.estrella {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  padding: 3px 7px;
+  border-radius: 4px;
+  color: #facc15;
+}
+
+/* Progreso */
+.progreso {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.barra {
+  flex: 1;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.relleno {
+  height: 100%;
+  background: #2563eb;
+  transition: width 0.4s ease;
+}
+
+.progreso p {
+  font-size: 0.85rem;
+  color: #444;
+  min-width: 100px;
+  text-align: right;
+}
+
+/* ----- Responsivo ----- */
+@media (max-width: 700px) {
+  .curso-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .curso-card img {
+    width: 100%;
+    height: 160px;
+  }
+
+  .curso-info {
+    padding: 15px;
+  }
+}
+
+/* ----- Hover efecto de selección de curso ----- */
+.curso-card {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efecto visual al pasar el mouse */
+.curso-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  border-color: #2563eb;
+}
+
+/* Si la tarjeta es un enlace (<a>), eliminamos estilo de link */
+a.curso-card {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+}
+
+/* En móvil, se mantiene sin animación */
+@media (max-width: 700px) {
+  .curso-card:hover {
+    transform: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+}
