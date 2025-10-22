@@ -1,5 +1,5 @@
 services:
-  notes-backend:
+  amibot-backend:
     build: .
     container_name: amibot-backend
     ports:
