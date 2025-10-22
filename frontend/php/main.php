@@ -6,6 +6,7 @@ $usuario = $_SESSION["nombre_usuario"];
 
 <!doctype html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -13,6 +14,7 @@ $usuario = $_SESSION["nombre_usuario"];
   <link rel="icon" type="image/png" href="./../img/logo_uch.png">
   <link rel="stylesheet" href="./../css/estilo_main.css" />
 </head>
+
 <body>
   <!-- NAVBAR -->
   <nav class="navbar">
@@ -95,27 +97,20 @@ $usuario = $_SESSION["nombre_usuario"];
   </section>
 
   <!-- CHATBOT FLOTANTE -->
-<div class="chatbot-container">
-  <!-- BOTÓN FLOTANTE -->
-  <button id="chatbot-toggle" class="chatbot-button">
-    <img src="./../img/chatbot.webp" alt="AMIBOT" />
-  </button>
+  <div class="chatbot-container">
+    <!-- BOTÓN FLOTANTE -->
+    <button id="chatbot-toggle" class="chatbot-button">
+      <img src="./../img/chatbot.webp" alt="AMIBOT" />
+    </button>
 
-  <!-- VENTANA DEL CHAT -->
-  <div id="chatbot-box" class="chatbot-box">
-    <div class="chatbot-header">
-      <h3>💬 AMIBOT</h3>
-      <button id="close-chat" class="close-chat">&times;</button>
-    </div>
-    <div class="chatbot-messages" id="chatbot-messages">
-      <div class="bot-msg">¡Hola! Soy AMIBOT 🤖<br>¿En qué puedo ayudarte hoy?</div>
-    </div>
-    <div class="chatbot-input-area">
-      <input type="text" id="chatbot-input" placeholder="Escribí tu mensaje..." />
-      <button id="send-chat">Enviar</button>
-    </div>
+    <!-- VENTANA DEL CHAT -->
+
+    <?php
+    include 'chatbot.php';
+    ?>
+
+
   </div>
-</div>
 
   <!-- FOOTER -->
   <footer class="site-footer">
@@ -124,37 +119,11 @@ $usuario = $_SESSION["nombre_usuario"];
     </div>
   </footer>
 
-  
 
-<script>
-  // JS simple para abrir/cerrar el chat
-  const toggle = document.getElementById("chatbot-toggle");
-  const box = document.getElementById("chatbot-box");
-  const close = document.getElementById("close-chat");
-  const send = document.getElementById("send-chat");
-  const input = document.getElementById("chatbot-input");
-  const messages = document.getElementById("chatbot-messages");
 
-  toggle.addEventListener("click", () => {
-    box.classList.toggle("active");
-  });
 
-  close.addEventListener("click", () => {
-    box.classList.remove("active");
-  });
-
-  send.addEventListener("click", () => {
-    const msg = input.value.trim();
-    if (msg) {
-      messages.innerHTML += `<div class='user-msg'>${msg}</div>`;
-      input.value = "";
-      messages.scrollTop = messages.scrollHeight;
-    }
-  });
-
-  input.addEventListener("keypress", e => {
-    if (e.key === "Enter") send.click();
-  });
-</script>
 </body>
+
+<script src="../js/chatbot.js"></script>
+
 </html>
