@@ -12,6 +12,8 @@ $usuario = $_SESSION["nombre_usuario"];
   <title>Cursos - Campus UCH</title>
   <link rel="icon" type="image/png" href="./../img/logo_uch.png">
   <link rel="stylesheet" href="./../css/estilo_curso.css">
+  <link rel="stylesheet" href="./../css/estilo_nav_bar.css">
+  <link rel="stylesheet" href="./../css/estilo_footer.css">
 </head>
 <body>
 
@@ -178,6 +180,10 @@ $usuario = $_SESSION["nombre_usuario"];
     </div>
 
   </section>
+
+  <?php 
+    include 'footer.php';
+  ?>
 
 </body>
 </html>

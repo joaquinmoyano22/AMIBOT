@@ -13,6 +13,10 @@ $usuario = $_SESSION["nombre_usuario"];
   <title>Campus UCH</title>
   <link rel="icon" type="image/png" href="./../img/logo_uch.png">
   <link rel="stylesheet" href="./../css/estilo_main.css" />
+  <link rel="stylesheet" href="./../css/estilo_nav_bar.css">
+  <link rel="stylesheet" href="./../css/estilo_hero.css" />
+  <link rel="stylesheet" href="./../css/estilo_footer.css">
+  <link rel="stylesheet" href="./../css/estilo_amibot.css">
 
 </head>
 
@@ -57,12 +61,9 @@ $usuario = $_SESSION["nombre_usuario"];
 
   </div>
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <p>© 2025 Universidad Champagnat — Todos los derechos reservados</p>
-    </div>
-  </footer>
+  <?php
+    include 'footer.php';
+  ?>
 
 
 

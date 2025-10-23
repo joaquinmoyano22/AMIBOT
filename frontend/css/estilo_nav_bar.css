@@ -1,0 +1,82 @@
+/* NAVBAR ---------------------------------------------------------------- */
+
+/* Contenedor principal de la barra superior */
+.navbar {
+  display: flex; /* layout flexible para alinear left y right */
+  justify-content: space-between; /* separación entre ambos extremos */
+  align-items: center; /* alinear verticalmente contenido */
+  padding: 16px 40px; /* espacio interno arriba/abajo y laterales */
+  background-image:
+    linear-gradient(90deg, rgba(76,36,141,0.85), rgba(10,104,209,0.75)),
+    url('img/hero-illustration.jpg'); /* fondo blanco levemente opaco */
+  border-bottom: 1px solid #e6e6e6; /* línea sutil separadora */
+  position: sticky; /* fija la navbar en la parte superior al hacer scroll */
+  top: 0; /* posición superior cuando es sticky */
+  z-index: 50; /* para que quede por encima del contenido */
+}
+
+/* Agrupa logo + brand + menú */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 28px; /* separación entre logo, brand y menú */
+}
+
+/* Logo: tamaño y comportamiento */
+.logo {
+  height: 60px; /* altura del logo */
+  width: auto; /* ancho automático para conservar proporción */
+  display: block; /* evitar espacio inline inesperado */
+}
+
+/* Texto de la marca junto al logo */
+.brand {
+  font-weight: 700; /* negrita */
+  color: #ffffff; /* color del texto del logo */
+  letter-spacing: 0.6px; /* separación entre letras */
+  font-size: 24px; /* tamaño del texto */
+  border-right: 2px solid rgba(255, 255, 255, 0.255); /* separador visual */
+  padding: 10px;
+}
+
+/* Menú principal (lista horizontal) */
+.menu {
+  list-style: none; /* quita los bullets */
+  display: flex; /* muestra los items en una fila */
+  gap: 20px; /* separación entre items */
+  align-items: center;
+}
+
+/* Estilo de los enlaces del menú */
+.menu a {
+  text-decoration: none; /* quita subrayado */
+  color: #ffffff; /* color del texto del menú */
+  font-size: 14px; /* tamaño de letra */
+  text-transform: uppercase; /* mayúsculas */
+  letter-spacing: 0.8px; /* espaciado de letras */
+  padding: 6px 4px; /* pequeño padding para que sea clickeable */
+}
+
+/* Contenedor derecho de la navbar */
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Enlace de login / registrarse */
+.login-link {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-left: 2px solid rgba(255, 255, 255, 0.255); /* separador visual */
+  padding: 10px;
+}
+
+/* ICON dentro del enlace (simple) */
+.login-link .icon {
+  font-size: 16px;
+}

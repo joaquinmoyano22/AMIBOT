@@ -1,0 +1,33 @@
+/* HERO / SLIDER --------------------------------------------------------- */
+
+/* Sección principal con fondo en degradado y una imagen ilustrativa */
+.hero {
+  /* combinamos un degradado con una imagen de ilustración centrada y cover */
+  background-image:
+    linear-gradient(90deg, rgba(76,36,141,0.85), rgba(10,104,209,0.75)),
+    url('img/hero-illustration.jpg');
+  background-size: cover; /* la imagen cubre todo el contenedor */
+  background-position: center center; /* centra la imagen */
+  color: #fff; /* texto en blanco encima del fondo oscuro */
+  text-align: center; /* centrado del texto */
+  padding: 200px 20px; /* espacio grande arriba/abajo para efecto "hero" */
+  position: relative; /* permite posiciones relativas dentro */
+}
+
+/* Título principal dentro del hero */
+.hero-title {
+  font-size: 40px; /* tamaño grande */
+  font-weight: 700; /* negrita */
+  margin-bottom: 18px; /* separación con el subtítulo */
+  max-width: 1000px; /* limitar ancho para no estirarse demasiado */
+  margin-left: auto; /* centra horizontalmente el bloque limitado */
+  margin-right: auto;
+  line-height: 1.08; /* line-height más compacto para títulos */
+}
+
+/* Subtítulo / descripción del hero */
+.hero-sub {
+  font-size: 16px; /* tamaño de texto secundario */
+  margin-bottom: 26px; /* espacio antes del botón */
+  opacity: 0.95; /* ligera transparencia para suavizar */
+}

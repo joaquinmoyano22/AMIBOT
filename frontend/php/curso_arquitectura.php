@@ -11,6 +11,9 @@ $usuario = $_SESSION["nombre_usuario"];
   <title>Arquitecturas de sistemas DIV-G 2016</title>
   <link rel="icon" type="image/png" href="./../img/logo_uch.png">
   <link rel="stylesheet" href="./../css/estilo_curso_arq.css">
+  <link rel="stylesheet" href="./../css/estilo_nav_bar.css">
+  <link rel="stylesheet" href="./../css/estilo_footer.css">
+  <link rel="stylesheet" href="./../css/estilo_amibot.css">
 </head>
 <body>
 
@@ -126,17 +129,67 @@ $usuario = $_SESSION["nombre_usuario"];
     include 'chatbot.php';
   ?>
 </div>
+<?php 
+    include 'footer.php';
+  ?>
 
 <script>
-    const unidad1 = document.getElementById('unidad1');
-    const modal = document.getElementById('modalUnidad1');
-    const cerrar = document.getElementById('cerrarModal');
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM listo — inicializando modal');
 
-    unidad1.onclick = () => modal.style.display = 'flex';
-    cerrar.onclick = () => modal.style.display = 'none';
-    window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; }
+  // Selección de elementos
+  const modal = document.getElementById('modalUnidad1');
+  const cerrar = document.getElementById('cerrarModal');
 
+  // Funciones de apertura/cierre
+  function abrirModal(target) {
+    if (!modal) { console.error('No se encontró el modal (id modalUnidad1)'); return; }
+    console.log('Abriendo modal:', target);
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden','false');
+    // opcional: bloquear scroll de fondo
+    document.body.style.overflow = 'hidden';
+  }
+  function cerrarModalFn() {
+    if (!modal) return;
+    console.log('Cerrando modal');
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+
+  // Abrir cuando se clickea la tarjeta con data-target
+  document.querySelectorAll('.unidad-card[data-target]').forEach(card => {
+    card.addEventListener('click', (e) => {
+      const target = card.getAttribute('data-target');
+      console.log('Click en unidad-card, data-target=', target);
+      if (target === 'modalUnidad1') abrirModal(target);
+    });
   });
+
+  // También habilito el click directo sobre el id 'unidad1' por compatibilidad:
+  const unidad1 = document.getElementById('unidad1');
+  if (unidad1 && !unidad1.hasAttribute('data-target')) {
+    unidad1.addEventListener('click', () => abrirModal('modalUnidad1'));
+  }
+
+  // Cerrar con la X
+  if (cerrar) cerrar.addEventListener('click', cerrarModalFn);
+
+  // Cerrar al clickear fuera del contenido
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) cerrarModalFn();
+  });
+
+  // Cerrar con Esc
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && modal.style.display !== 'none') {
+      cerrarModalFn();
+    }
+  });
+
+  console.log('Modal: listeners añadidos correctamente');
+});
 </script>
 
 
