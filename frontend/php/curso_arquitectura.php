@@ -14,24 +14,10 @@ $usuario = $_SESSION["nombre_usuario"];
 </head>
 <body>
 
-<!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="nav-left">
-      <img class="logo" src="./../img/logo_index.png" alt="Logo UCH">
-      <span class="brand">CAMPUS UCH</span>
-      <ul class="menu">
-        <li><a href="#">PÁGINA PRINCIPAL</a></li>
-        <li><a href="#">AREA PERSONAL</a></li>
-        <li><a href="curso.php">MIS CURSOS</a></li>
-        <li><a href="#">AYUDA</a></li>
-        <li><a href="#">OTROS ACCESOS</a></li>
-      </ul>
-    </div>
-    <div class="nav-right">
-      <!-- Este link abre el modal -->
-      <a href="#" id="openModal" class="login-link"><span class="icon">👤</span><?php echo $usuario; ?></a>
-    </div>
-  </nav>
+<?php
+  include 'nav_bar.php';
+?>
+
   <!-- HEADER -->
   <header class="header">
     <h1>ARQUITECTURAS DE SISTEMAS DIV-G 2016</h1>
@@ -55,12 +41,12 @@ $usuario = $_SESSION["nombre_usuario"];
   <!-- UNIDADES -->
   <section class="unidades">
     <div class="unidad-card">
-      <img src="./../img/icono_unidad.svg" alt="">
+      <img src="" alt="">
       <p>INTRODUCCIÓN</p>
     </div>
 
     <div class="unidad-card" id="unidad1">
-      <img src="./../img/icono_unidad.svg" alt="">
+      <img src="" alt="">
       <p>Unidad I: Arquitecturas de sistemas</p>
     </div>
 
@@ -97,34 +83,34 @@ $usuario = $_SESSION["nombre_usuario"];
 
       <h3>Material de clase de la Unidad I</h3>
       <div class="recursos">
-        <div class="recurso azul">📘 Unidad I - Video Parte 1</div>
-        <div class="recurso azul">📘 Unidad I - Video Parte 2</div>
-        <div class="recurso azul">📘 Unidad I - Video Parte 3</div>
-        <div class="recurso rojo">❗ Foro de consultas sobre la unidad</div>
-        <div class="recurso amarillo">📝 Act.1-1: Compartiendo nuevos conceptos</div>
-        <div class="recurso rosa">📚 TP-3: Diseño integral de la arquitectura</div>
-        <div class="recurso gris">📄 Síntesis de Documentos de Arquitectura</div>
+        <div class="recurso azul"> Unidad I - Video Parte 1</div>
+        <div class="recurso azul"> Unidad I - Video Parte 2</div>
+        <div class="recurso azul"> Unidad I - Video Parte 3</div>
+        <div class="recurso rojo"> Foro de consultas sobre la unidad</div>
+        <div class="recurso amarillo"> Act.1-1: Compartiendo nuevos conceptos</div>
+        <div class="recurso rosa"> TP-3: Diseño integral de la arquitectura</div>
+        <div class="recurso gris"> Síntesis de Documentos de Arquitectura</div>
       </div>
     </div>
   </div>
 
     <div class="unidad-card">
-      <img src="./../img/icono_unidad.svg" alt="">
+      <img src="" alt="">
       <p>Unidad II: Estilos y patrones</p>
     </div>
 
     <div class="unidad-card">
-      <img src="./../img/icono_unidad.svg" alt="">
+      <img src="" alt="">
       <p>Unidad III: Arquitecturas orientadas a servicios</p>
     </div>
 
     <div class="unidad-card">
-      <img src="./../img/icono_unidad.svg" alt="">
+      <img src="" alt="">
       <p>Unidad IV: Ingeniería reversa para la recuperación de la arquitectura</p>
     </div>
 
     <div class="unidad-card">
-      <img src="./../img/icono_unidad.svg" alt="">
+      <img src="" alt="">
       <p>BIBLIOGRAFÍA</p>
     </div>
   </section>
@@ -133,23 +119,12 @@ $usuario = $_SESSION["nombre_usuario"];
 <div class="chatbot-container">
   <!-- BOTÓN FLOTANTE -->
   <button id="chatbot-toggle" class="chatbot-button">
-    <img src="./../img/chatbot.webp" alt="AMIBOT" />
+    <img src="./../assets/img/chatbot.webp" alt="AMIBOT" />
   </button>
 
-  <!-- VENTANA DEL CHAT -->
-  <div id="chatbot-box" class="chatbot-box">
-    <div class="chatbot-header">
-      <h3>💬 AMIBOT - ARQUITECTURAS DE SISTEMAS</h3>
-      <button id="close-chat" class="close-chat">&times;</button>
-    </div>
-    <div class="chatbot-messages" id="chatbot-messages">
-      <div class="bot-msg">¡Hola! Soy AMIBOT 🤖<br>¿En qué puedo ayudarte hoy?</div>
-    </div>
-    <div class="chatbot-input-area">
-      <input type="text" id="chatbot-input" placeholder="Escribí tu mensaje..." />
-      <button id="send-chat">Enviar</button>
-    </div>
-  </div>
+  <?php
+    include 'chatbot.php';
+  ?>
 </div>
 
 <script>
@@ -161,35 +136,11 @@ $usuario = $_SESSION["nombre_usuario"];
     cerrar.onclick = () => modal.style.display = 'none';
     window.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; }
 
-  // JS simple para abrir/cerrar el chat
-  const toggle = document.getElementById("chatbot-toggle");
-  const box = document.getElementById("chatbot-box");
-  const close = document.getElementById("close-chat");
-  const send = document.getElementById("send-chat");
-  const input = document.getElementById("chatbot-input");
-  const messages = document.getElementById("chatbot-messages");
-
-  toggle.addEventListener("click", () => {
-    box.classList.toggle("active");
-  });
-
-  close.addEventListener("click", () => {
-    box.classList.remove("active");
-  });
-
-  send.addEventListener("click", () => {
-    const msg = input.value.trim();
-    if (msg) {
-      messages.innerHTML += `<div class='user-msg'>${msg}</div>`;
-      input.value = "";
-      messages.scrollTop = messages.scrollHeight;
-    }
-  });
-
-  input.addEventListener("keypress", e => {
-    if (e.key === "Enter") send.click();
   });
 </script>
+
+
+<script src="../js/api/chatbot.js"></script>
 
 </body>
 </html>

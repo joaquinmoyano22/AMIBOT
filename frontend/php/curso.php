@@ -14,24 +14,10 @@ $usuario = $_SESSION["nombre_usuario"];
   <link rel="stylesheet" href="./../css/estilo_curso.css">
 </head>
 <body>
-<!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="nav-left">
-      <img class="logo" src="./../img/logo_index.png" alt="Logo UCH">
-      <span class="brand">CAMPUS UCH</span>
-      <ul class="menu">
-        <li><a href="#">PÁGINA PRINCIPAL</a></li>
-        <li><a href="#">AREA PERSONAL</a></li>
-        <li><a href="curso.php">MIS CURSOS</a></li>
-        <li><a href="#">AYUDA</a></li>
-        <li><a href="#">OTROS ACCESOS</a></li>
-      </ul>
-    </div>
-    <div class="nav-right">
-      <!-- Este link abre el modal -->
-      <a href="#" id="openModal" class="login-link"><span class="icon">👤</span><?php echo $usuario; ?></a>
-    </div>
-  </nav>
+
+  <?php 
+    include 'nav_bar.php'; 
+  ?>
 
 
   <section class="cursos-container">
