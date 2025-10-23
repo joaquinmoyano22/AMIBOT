@@ -1,7 +1,11 @@
 /* Reset / base ----------------------------------------------------------- */
 
 /* Elimina márgenes y paddings por defecto y define box-sizing para todo */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 /* Estilos base del documento: fuente por defecto y color de texto */
 body {
@@ -30,7 +34,7 @@ body {
   border: 0.5px solid #cbcbcb;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 /* Imagen lateral */

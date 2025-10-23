@@ -1,98 +1,109 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Campus UCH</title>
-  <link rel="icon" type="image/png" href="./img/logo_uch.png">
-  <link rel="stylesheet" href="./css/estilos_index.css">
-  <link rel="stylesheet" href="./css/estilo_nav_bar.css">
-  <link rel="stylesheet" href="./css/estilo_hero.css">
-  <link rel="stylesheet" href="./css/estilo_footer.css">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Campus UCH</title>
+    <link rel="icon" type="image/png" href="./img/logo_uch.png" />
+    <link rel="stylesheet" href="./css/estilos_index.css" />
+    <link rel="stylesheet" href="./css/estilo_nav_bar.css" />
+    <link rel="stylesheet" href="./css/estilo_hero.css" />
+    <link rel="stylesheet" href="./css/estilo_footer.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="nav-left">
+        <img class="logo" src="img/logo_index.png" alt="Logo UCH" />
+        <span class="brand">CAMPUS UCH</span>
+        <ul class="menu">
+          <li><a href="#">PÁGINA PRINCIPAL</a></li>
+          <li><a href="#">AYUDA</a></li>
+          <li><a href="#">OTROS ACCESOS</a></li>
+          <li><a href="#">ANALÍTICA</a></li>
+        </ul>
+      </div>
+      <div class="nav-right">
+        <!-- Este link abre el modal -->
+        <a href="#" id="openModal" class="login-link"
+          ><span class="icon">👤</span> Iniciar sesión / Registrarse</a
+        >
+      </div>
+    </nav>
 
-</head>
-<body>
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="nav-left">
-      <img class="logo" src="img/logo_index.png" alt="Logo UCH">
-      <span class="brand">CAMPUS UCH</span>
-      <ul class="menu">
-        <li><a href="#">PÁGINA PRINCIPAL</a></li>
-        <li><a href="#">AYUDA</a></li>
-        <li><a href="#">OTROS ACCESOS</a></li>
-        <li><a href="#">ANALÍTICA</a></li>
-      </ul>
+    <!-- HERO -->
+    <section class="hero">
+      <h1 class="hero-title">¿Ya conociste a AMIBOT?</h1>
+      <p class="hero-sub">
+        Es mi <b>AMIGO EL BOT</b>, quien te estará acompañando a lo largo de tu
+        carrera<br />
+        En donde podrás hacer consultas sobre las materias, calendario, pedir
+        resúmenes, etc.
+      </p>
+    </section>
+
+    <!-- CURSOS -->
+    <section class="cursos">
+      <h2>Cursos</h2>
+      <p>
+        Inicia sesión para poder visitar los cursos disponibles<br />y probar el
+        nuevo CHATBOT
+      </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p>© 2025 Universidad Champagnat — Todos los derechos reservados</p>
+      </div>
+    </footer>
+
+    <!-- MODAL DE LOGIN -->
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <!-- botón de cerrar -->
+        <span class="close" id="closeModal">&times;</span>
+        <h2>Inicie sesión en su cuenta</h2>
+        <form action="./php/sesion.php" method="POST">
+          <input type="email" placeholder="Email" name="email" required />
+          <input
+            type="password"
+            placeholder="Contraseña"
+            name="password"
+            required
+          />
+          <div class="options">
+            <label><input type="checkbox" /> Recordar nombre de usuario</label>
+            <a href="#">¿Olvidó su contraseña?</a>
+          </div>
+          <button type="submit" class="btn-login">Acceder</button>
+        </form>
+      </div>
     </div>
-    <div class="nav-right">
-      <!-- Este link abre el modal -->
-      <a href="#" id="openModal" class="login-link"><span class="icon">👤</span> Iniciar sesión / Registrarse</a>
-    </div>
-  </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1 class="hero-title">¿Ya conociste a AMIBOT?</h1>
-    <p class="hero-sub">
-      Es mi <b>AMIGO EL BOT</b>, quien te estará acompañando a lo largo de tu carrera<br>
-      En donde podrás hacer consultas sobre las materias, calendario, pedir resúmenes, etc.
-    </p>
-  </section>
+    <!-- SCRIPT: abrir/cerrar modal -->
+    <script>
+      const modal = document.getElementById("loginModal");
+      const openModal = document.getElementById("openModal");
+      const closeModal = document.getElementById("closeModal");
 
-  <!-- CURSOS -->
-  <section class="cursos">
-    <h2>Cursos</h2>
-    <p>Inicia sesión para poder visitar los cursos disponibles<br>y probar el nuevo CHATBOT</p>
-  </section>
+      // abrir modal
+      openModal.onclick = function (e) {
+        e.preventDefault();
+        modal.style.display = "flex";
+      };
 
-  <!-- FOOTER -->
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <p>© 2025 Universidad Champagnat — Todos los derechos reservados</p>
-    </div>
-  </footer>
-
-  <!-- MODAL DE LOGIN -->
-  <div id="loginModal" class="modal">
-    <div class="modal-content">
-      <!-- botón de cerrar -->
-      <span class="close" id="closeModal">&times;</span>
-      <h2>Inicie sesión en su cuenta</h2>
-      <form action="./php/sesion.php" method="POST">
-        <input type="text" placeholder="Usuario" name="usuario" required>
-        <input type="password" placeholder="Contraseña" name="password" required>
-        <div class="options">
-          <label><input type="checkbox"> Recordar nombre de usuario</label>
-          <a href="#">¿Olvidó su contraseña?</a>
-        </div>
-        <button type="submit" class="btn-login">Acceder</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- SCRIPT: abrir/cerrar modal -->
-  <script>
-    const modal = document.getElementById('loginModal');
-    const openModal = document.getElementById('openModal');
-    const closeModal = document.getElementById('closeModal');
-
-    // abrir modal
-    openModal.onclick = function(e) {
-      e.preventDefault();
-      modal.style.display = "flex";
-    }
-
-    // cerrar modal (X)
-    closeModal.onclick = function() {
-      modal.style.display = "none";
-    }
-
-    // cerrar modal si se hace click afuera
-    window.onclick = function(event) {
-      if (event.target == modal) {
+      // cerrar modal (X)
+      closeModal.onclick = function () {
         modal.style.display = "none";
-      }
-    }
-  </script>
-</body>
+      };
+
+      // cerrar modal si se hace click afuera
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    </script>
+  </body>
 </html>

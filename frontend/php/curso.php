@@ -1,11 +1,13 @@
 <?php
 session_start();
 
-$usuario = $_SESSION["nombre_usuario"];
+$usuario = $_SESSION["nombre"];
+$isAdmin = $_SESSION["isAdmin"];
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,175 +17,228 @@ $usuario = $_SESSION["nombre_usuario"];
   <link rel="stylesheet" href="./../css/estilo_nav_bar.css">
   <link rel="stylesheet" href="./../css/estilo_footer.css">
 </head>
+
 <body>
-
-  <?php 
-    include 'nav_bar.php'; 
+  <?php
+  include 'nav_bar.php';
   ?>
+  <?php
+  if ($isAdmin == 0) {
+    ?>
 
+    <section class="cursos-container">
 
-  <section class="cursos-container">
-
-    <a href="curso_arquitectura.php" class="curso-card enlace-curso">
-  <img src="./../img/img_curso1.svg" alt="Arquitecturas de sistemas">
-  <div class="curso-info">
-    <p class="carrera">Licenciatura en Sistemas de Información</p>
-    <h2>Arquitecturas de sistemas DIV-G 2016</h2>
-    <div class="estado">
-      <span class="publicado">Publicado</span>
-      <span class="estrella">⭐</span>
-    </div>
-    <div class="progreso">
-      <div class="barra">
-        <div class="relleno" style="width: 70%;"></div>
-      </div>
-      <p>70% completado</p>
-    </div>
-  </div>
-</a>
-
-
-    <div class="curso-card">
-      <img src="./../img/img_curso2.svg" alt="Auditoría">
-      <div class="curso-info">
-        <p class="carrera">Licenciatura en Sistemas de Información</p>
-        <h2>AUDITORIA DIV-G 2016</h2>
-        <div class="estado">
-          <span class="publicado">Publicado</span>
-        </div>
-        <div class="progreso">
-          <div class="barra">
-            <div class="relleno" style="width: 100%;"></div>
+      <a href="curso_arquitectura.php" class="curso-card enlace-curso">
+        <img src="./../img/img_curso1.svg" alt="Arquitecturas de sistemas">
+        <div class="curso-info">
+          <p class="carrera">Licenciatura en Sistemas de Información</p>
+          <h2>Arquitecturas de sistemas DIV-G 2016</h2>
+          <div class="estado">
+            <span class="publicado">Publicado</span>
+            <span class="estrella">⭐</span>
           </div>
-          <p>100% completado</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="curso-card">
-      <img src="./../img/img_curso3.svg" alt="Calidad de software">
-      <div class="curso-info">
-        <p class="carrera">Licenciatura en Sistemas de Información</p>
-        <h2>Calidad de software I DIV-G 2016</h2>
-        <div class="estado">
-          <span class="publicado">Publicado</span>
-        </div>
-        <div class="progreso">
-          <div class="barra">
-            <div class="relleno" style="width: 100%;"></div>
+          <div class="progreso">
+            <div class="barra">
+              <div class="relleno" style="width: 70%;"></div>
+            </div>
+            <p>70% completado</p>
           </div>
-          <p>100% completado</p>
         </div>
-      </div>
-    </div>
+      </a>
 
-    <div class="curso-card">
-      <img src="./../img/img_curso1.svg" alt="Calidad de software II">
-      <div class="curso-info">
-        <p class="carrera">Licenciatura en Sistemas de Información</p>
-        <h2>Calidad de software II DIV-G 2016</h2>
-        <div class="estado">
-          <span class="publicado">Publicado</span>
-        </div>
-        <div class="progreso">
-          <div class="barra">
-            <div class="relleno" style="width: 10%;"></div>
+
+      <div class="curso-card">
+        <img src="./../img/img_curso2.svg" alt="Auditoría">
+        <div class="curso-info">
+          <p class="carrera">Licenciatura en Sistemas de Información</p>
+          <h2>AUDITORIA DIV-G 2016</h2>
+          <div class="estado">
+            <span class="publicado">Publicado</span>
           </div>
-          <p>10% completado</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="curso-card">
-      <img src="./../img/img_curso4.svg" alt="Gestion de proyectos">
-      <div class="curso-info">
-        <p class="carrera">Licenciatura en Sistemas de Información</p>
-        <h2>Gestion de proyectos DIV-G 2016</h2>
-        <div class="estado">
-          <span class="publicado">Publicado</span>
-        </div>
-        <div class="progreso">
-          <div class="barra">
-            <div class="relleno" style="width: 80%;"></div>
+          <div class="progreso">
+            <div class="barra">
+              <div class="relleno" style="width: 100%;"></div>
+            </div>
+            <p>100% completado</p>
           </div>
-          <p>80% completado</p>
         </div>
       </div>
-    </div>
 
-    <div class="curso-card">
-      <img src="./../img/img_curso2.svg" alt="Probabilidad y estadística">
-      <div class="curso-info">
-        <p class="carrera">Licenciatura en Sistemas de Información</p>
-        <h2>Probabilidad y estadística DIV-G 2016</h2>
-        <div class="estado">
-          <span class="publicado">Publicado</span>
-        </div>
-        <div class="progreso">
-          <div class="barra">
-            <div class="relleno" style="width: 100%;"></div>
+      <div class="curso-card">
+        <img src="./../img/img_curso3.svg" alt="Calidad de software">
+        <div class="curso-info">
+          <p class="carrera">Licenciatura en Sistemas de Información</p>
+          <h2>Calidad de software I DIV-G 2016</h2>
+          <div class="estado">
+            <span class="publicado">Publicado</span>
           </div>
-          <p>100% completado</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="curso-card">
-      <img src="./../img/img_curso3.svg" alt="Proceso de desarrollo de software">
-      <div class="curso-info">
-        <p class="carrera">Licenciatura en Sistemas de Información</p>
-        <h2>Proceso de desarrollo de software DIV-G 2016</h2>
-        <div class="estado">
-          <span class="publicado">Publicado</span>
-        </div>
-        <div class="progreso">
-          <div class="barra">
-            <div class="relleno" style="width: 100%;"></div>
+          <div class="progreso">
+            <div class="barra">
+              <div class="relleno" style="width: 100%;"></div>
+            </div>
+            <p>100% completado</p>
           </div>
-          <p>100% completado</p>
         </div>
       </div>
-    </div>
 
-    <div class="curso-card">
-      <img src="./../img/img_curso4.svg" alt="Teoria de la computación III">
-      <div class="curso-info">
-        <p class="carrera">Licenciatura en Sistemas de Información</p>
-        <h2>Teoria de la computación III DIV-G 2016</h2>
-        <div class="estado">
-          <span class="publicado">Publicado</span>
-        </div>
-        <div class="progreso">
-          <div class="barra">
-            <div class="relleno" style="width: 60%;"></div>
+      <div class="curso-card">
+        <img src="./../img/img_curso1.svg" alt="Calidad de software II">
+        <div class="curso-info">
+          <p class="carrera">Licenciatura en Sistemas de Información</p>
+          <h2>Calidad de software II DIV-G 2016</h2>
+          <div class="estado">
+            <span class="publicado">Publicado</span>
           </div>
-          <p>60% completado</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="curso-card">
-      <img src="./../img/img_curso1.svg" alt="Seguridad">
-      <div class="curso-info">
-        <p class="carrera">Licenciatura en Sistemas de Información</p>
-        <h2>Seguridad DIV-G 2016</h2>
-        <div class="estado">
-          <span class="publicado">Publicado</span>
-        </div>
-        <div class="progreso">
-          <div class="barra">
-            <div class="relleno" style="width: 10%;"></div>
+          <div class="progreso">
+            <div class="barra">
+              <div class="relleno" style="width: 10%;"></div>
+            </div>
+            <p>10% completado</p>
           </div>
-          <p>10% completado</p>
         </div>
       </div>
-    </div>
 
-  </section>
+      <div class="curso-card">
+        <img src="./../img/img_curso4.svg" alt="Gestion de proyectos">
+        <div class="curso-info">
+          <p class="carrera">Licenciatura en Sistemas de Información</p>
+          <h2>Gestion de proyectos DIV-G 2016</h2>
+          <div class="estado">
+            <span class="publicado">Publicado</span>
+          </div>
+          <div class="progreso">
+            <div class="barra">
+              <div class="relleno" style="width: 80%;"></div>
+            </div>
+            <p>80% completado</p>
+          </div>
+        </div>
+      </div>
 
-  <?php 
+      <div class="curso-card">
+        <img src="./../img/img_curso2.svg" alt="Probabilidad y estadística">
+        <div class="curso-info">
+          <p class="carrera">Licenciatura en Sistemas de Información</p>
+          <h2>Probabilidad y estadística DIV-G 2016</h2>
+          <div class="estado">
+            <span class="publicado">Publicado</span>
+          </div>
+          <div class="progreso">
+            <div class="barra">
+              <div class="relleno" style="width: 100%;"></div>
+            </div>
+            <p>100% completado</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="curso-card">
+        <img src="./../img/img_curso3.svg" alt="Proceso de desarrollo de software">
+        <div class="curso-info">
+          <p class="carrera">Licenciatura en Sistemas de Información</p>
+          <h2>Proceso de desarrollo de software DIV-G 2016</h2>
+          <div class="estado">
+            <span class="publicado">Publicado</span>
+          </div>
+          <div class="progreso">
+            <div class="barra">
+              <div class="relleno" style="width: 100%;"></div>
+            </div>
+            <p>100% completado</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="curso-card">
+        <img src="./../img/img_curso4.svg" alt="Teoria de la computación III">
+        <div class="curso-info">
+          <p class="carrera">Licenciatura en Sistemas de Información</p>
+          <h2>Teoria de la computación III DIV-G 2016</h2>
+          <div class="estado">
+            <span class="publicado">Publicado</span>
+          </div>
+          <div class="progreso">
+            <div class="barra">
+              <div class="relleno" style="width: 60%;"></div>
+            </div>
+            <p>60% completado</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="curso-card">
+        <img src="./../img/img_curso1.svg" alt="Seguridad">
+        <div class="curso-info">
+          <p class="carrera">Licenciatura en Sistemas de Información</p>
+          <h2>Seguridad DIV-G 2016</h2>
+          <div class="estado">
+            <span class="publicado">Publicado</span>
+          </div>
+          <div class="progreso">
+            <div class="barra">
+              <div class="relleno" style="width: 10%;"></div>
+            </div>
+            <p>10% completado</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <?php
     include 'footer.php';
-  ?>
+    ?>
 
+    <?php
+  } elseif ($isAdmin == 1) {
+    ?>
+    <section class="cursos-container">
+
+      <a href="curso_arquitectura.php" class="curso-card enlace-curso">
+        <img src="./../img/img_curso1.svg" alt="Arquitecturas de sistemas">
+        <div class="curso-info">
+          <p class="carrera">Licenciatura en Sistemas de Información</p>
+          <h2>Arquitecturas de sistemas DIV-G 2016</h2>
+          <div class="estado">
+            <span class="publicado">Publicado</span>
+            <span class="estrella">⭐</span>
+          </div>
+        </div>
+      </a>
+
+
+      <div class="curso-card">
+        <img src="./../img/img_curso2.svg" alt="Ingeniería de software">
+        <div class="curso-info">
+          <p class="carrera">Licenciatura en Sistemas de Información</p>
+          <h2>Ingeniería de software DIV-G 2016</h2>
+          <div class="estado">
+            <span class="publicado">Publicado</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="curso-card">
+        <img src="./../img/img_curso3.svg" alt="Calidad de software">
+        <div class="curso-info">
+          <p class="carrera">Licenciatura en Sistemas de Información</p>
+          <h2>Calidad de software I DIV-G 2016</h2>
+          <div class="estado">
+            <span class="publicado">Publicado</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <?php
+    include 'footer.php';
+    ?>
+
+
+    <?php
+
+  }
+  ?>
 </body>
+
 </html>

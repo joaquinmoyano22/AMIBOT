@@ -13,5 +13,3 @@
         <button id="consultarGeminis">Enviar</button>
     </div>
 </div>
-
-

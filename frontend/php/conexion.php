@@ -1,6 +1,3 @@
 <?php
-
-$conexion = mysqli_connect("localhost","root","","amibot");
-
-
+    $conexion = mysqli_connect("localhost", "root", "", "amibot");
 ?>

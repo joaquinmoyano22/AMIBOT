@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./../css/estilo_main.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./../css/estilo_main.css" />
 </head>
+
 <body>
-    <!-- CURSOS -->
+  <!-- CURSOS -->
   <section class="cursos-section">
     <h1 class="titulo">Cursos</h1>
     <p class="subtitulo">Ver los cursos disponibles por categoría</p>
@@ -58,4 +60,5 @@
     </div>
   </section>
 </body>
+
 </html>

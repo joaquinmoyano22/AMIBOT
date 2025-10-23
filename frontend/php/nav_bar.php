@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 </head>
+
 <body>
-    <!-- NAVBAR -->
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="nav-left">
       <img class="logo" src="./../img/logo_index.png" alt="Logo UCH">
@@ -25,4 +27,5 @@
     </div>
   </nav>
 </body>
+
 </html>

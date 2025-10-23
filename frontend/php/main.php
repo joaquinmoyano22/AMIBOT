@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$usuario = $_SESSION["nombre_usuario"];
+$usuario = $_SESSION["nombre"];
 ?>
 
 <!doctype html>
@@ -21,9 +21,9 @@ $usuario = $_SESSION["nombre_usuario"];
 </head>
 
 <body>
-  
+
   <?php
-    include 'nav_bar.php';
+  include 'nav_bar.php';
   ?>
 
   <!-- HERO -->
@@ -36,7 +36,7 @@ $usuario = $_SESSION["nombre_usuario"];
   </section>
 
   <?php
-    include 'cursos-section.php';
+  include 'cursos-section.php';
   ?>
 
   <!-- CHATBOT FLOTANTE -->
@@ -52,21 +52,18 @@ $usuario = $_SESSION["nombre_usuario"];
     include 'chatbot.php';
     ?>
 
-  <div id="chatbot-messages">
-  <!-- mensajes aparecen acá -->
-  <div id="chatbot-typing" class="chatbot-typing" style="display: none;">
-    <span></span><span></span><span></span>
-  </div>
-</div>
+    <div id="chatbot-messages">
+      <!-- mensajes aparecen acá -->
+      <div id="chatbot-typing" class="chatbot-typing" style="display: none;">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
 
   </div>
 
   <?php
-    include 'footer.php';
+  include 'footer.php';
   ?>
-
-
-
 
 </body>
 

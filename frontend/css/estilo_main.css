@@ -1,7 +1,11 @@
 /* Reset / base ----------------------------------------------------------- */
 
 /* Elimina márgenes y paddings por defecto y define box-sizing para todo */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 /* Estilos base del documento: fuente por defecto y color de texto */
 body {
@@ -12,7 +16,6 @@ body {
   -moz-osx-font-smoothing: grayscale; /* suaviza tipografía en Firefox/OSX */
   line-height: 1.4; /* altura de línea por defecto */
 }
-
 
 /* SECCIÓN "Cursos" ------------------------------------------------------ */
 
@@ -36,38 +39,54 @@ body {
   font-size: 15px;
 }
 
-
 /* RESPONSIVE: reglas para pantallas pequeñas ----------------------------- */
 
 /* A menos de 900px: reducir tamaños y reorganizar menú */
 @media (max-width: 900px) {
-  .menu { display: none; /* ocultamos el menú largo en pantallas chicas */ }
-  .hero { padding: 72px 18px; } /* menos padding en hero */
-  .hero-title { font-size: 28px; } /* título más chico */
+  .menu {
+    display: none; /* ocultamos el menú largo en pantallas chicas */
+  }
+  .hero {
+    padding: 72px 18px;
+  } /* menos padding en hero */
+  .hero-title {
+    font-size: 28px;
+  } /* título más chico */
 }
 
 /* A menos de 480px: ajustes extra para móviles */
 @media (max-width: 480px) {
-  .navbar { padding: 12px 14px; } /* menos padding en navbar */
-  .brand { display: none; } /* ocultamos texto del brand si falta espacio */
-  .logo { height: 36px; } /* logo ligeramente más chico */
-  .hero-title { font-size: 22px; } /* título móvil */
-  .hero { padding: 56px 12px; } /* menos padding general */
+  .navbar {
+    padding: 12px 14px;
+  } /* menos padding en navbar */
+  .brand {
+    display: none;
+  } /* ocultamos texto del brand si falta espacio */
+  .logo {
+    height: 36px;
+  } /* logo ligeramente más chico */
+  .hero-title {
+    font-size: 22px;
+  } /* título móvil */
+  .hero {
+    padding: 56px 12px;
+  } /* menos padding general */
 }
-
 
 /* MODAL LOGIN ------------------------------------------------------------ */
 
 /* Fondo oscuro */
 .modal {
-  display: none;              /* oculto por defecto */
-  position: fixed;            /* ocupa toda la pantalla */
-  top: 0; left: 0;
-  width: 100%; height: 100%;
+  display: none; /* oculto por defecto */
+  position: fixed; /* ocupa toda la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.818); /* fondo semitransparente */
-  justify-content: center;    /* centra horizontal */
-  align-items: center;        /* centra vertical */
-  z-index: 200;               /* por encima del resto */
+  justify-content: center; /* centra horizontal */
+  align-items: center; /* centra vertical */
+  z-index: 200; /* por encima del resto */
 }
 
 /* Caja blanca del modal */
@@ -76,19 +95,19 @@ body {
   padding: 40px 50px;
   border-radius: 20px;
   height: 350px;
-  width: 500px;           /* más angosto para que quede compacto */
-  text-align: left;       /* alineación más natural del formulario */
+  width: 500px; /* más angosto para que quede compacto */
+  text-align: left; /* alineación más natural del formulario */
   position: relative;
   animation: fadeIn 0.3s ease;
   display: flex;
   flex-direction: column;
-  gap: 25px;              /* separación uniforme entre elementos */
+  gap: 25px; /* separación uniforme entre elementos */
 }
 
 /* Botón de cerrar (X) */
 .close {
   position: absolute;
-  top: 15px; 
+  top: 15px;
   right: 20px;
   font-size: 26px;
   cursor: pointer;
@@ -101,7 +120,7 @@ body {
   font-size: 24px;
   font-weight: bold;
   color: #222;
-  text-align: center;    /* centrado del título */
+  text-align: center; /* centrado del título */
 }
 
 /* Inputs de usuario/contraseña */
@@ -118,17 +137,17 @@ body {
 .options {
   display: flex;
   justify-content: space-between; /* un lado checkbox, otro link */
-  align-items: center;            /* alineados en el centro */
+  align-items: center; /* alineados en el centro */
   font-size: 15px;
   margin-top: 5px;
 }
 /* Checkbox alineado horizontal */
 .options label {
-    display: inline-flex;
-    align-items: center;
-    gap: 15px;         /* menos espacio entre el checkbox y el texto */
-    width: auto;      /* no forzar ancho que provoque wrapping */
-    white-space: nowrap; /* todo el texto en una sola línea */
+  display: inline-flex;
+  align-items: center;
+  gap: 15px; /* menos espacio entre el checkbox y el texto */
+  width: auto; /* no forzar ancho que provoque wrapping */
+  white-space: nowrap; /* todo el texto en una sola línea */
 }
 
 .options a {
@@ -148,12 +167,20 @@ body {
   cursor: pointer;
   margin-top: 10px;
 }
-.btn-login:hover { background: #162f7a; }
+.btn-login:hover {
+  background: #162f7a;
+}
 
 /* Animación de fade */
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to   { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 * {

@@ -3,9 +3,12 @@
 /* Sección principal con fondo en degradado y una imagen ilustrativa */
 .hero {
   /* combinamos un degradado con una imagen de ilustración centrada y cover */
-  background-image:
-    linear-gradient(90deg, rgba(76,36,141,0.85), rgba(10,104,209,0.75)),
-    url('img/hero-illustration.jpg');
+  background-image: linear-gradient(
+      90deg,
+      rgba(76, 36, 141, 0.85),
+      rgba(10, 104, 209, 0.75)
+    ),
+    url("img/hero-illustration.jpg");
   background-size: cover; /* la imagen cubre todo el contenedor */
   background-position: center center; /* centra la imagen */
   color: #fff; /* texto en blanco encima del fondo oscuro */
