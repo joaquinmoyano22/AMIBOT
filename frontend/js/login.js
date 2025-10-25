@@ -20,13 +20,22 @@ form.addEventListener('submit', async (e) => {
     const data = await res.json();
 
     if (!res.ok) {
-      message.textContent = data.error || 'Usuario o contraseña incorrectos.';
+      if (message) message.textContent = data.error || 'Usuario o contraseña incorrectos.';
+      else alert(data.error || 'Usuario o contraseña incorrectos.');
       return;
     }
 
-    window.location.href = `main.php?id=${data.id}`;
+    // En lugar de ir directamente a main.php, llamamos a un callback PHP
+    // que crea la sesión en el servidor y luego redirige a main.php.
+    const userName = data.name || data.nombre || data.username || data.user || '';
+    let callbackUrl = `./php/login_callback.php?id=${encodeURIComponent(
+      data.id
+    )}`;
+    if (userName) callbackUrl += `&name=${encodeURIComponent(userName)}`;
+    window.location.href = callbackUrl;
   } catch (err) {
     console.error(err);
-    message.textContent = 'Error de conexión con el servidor.';
+    if (message) message.textContent = 'Error de conexión con el servidor.';
+    else alert('Error de conexión con el servidor.');
   }
 });
