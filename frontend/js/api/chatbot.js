@@ -1,45 +1,45 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const box = document.getElementById("chatbot-box");
-  const close = document.getElementById("close-chat");
-  const input = document.getElementById("chatbot-input");
-  const boton = document.getElementById("consultarGeminis");
-  const messages = document.getElementById("chatbot-messages");
+document.addEventListener('DOMContentLoaded', () => {
+  const box = document.getElementById('chatbot-box');
+  const close = document.getElementById('close-chat');
+  const input = document.getElementById('chatbot-input');
+  const boton = document.getElementById('consultarGeminis');
+  const messages = document.getElementById('chatbot-messages');
 
-  const toggle = document.getElementById("chatbot-toggle");
+  const toggle = document.getElementById('chatbot-toggle');
   if (toggle) {
-    toggle.addEventListener("click", () => {
-      box.classList.toggle("active");
+    toggle.addEventListener('click', () => {
+      box.classList.toggle('active');
     });
   }
 
   if (close) {
-    close.addEventListener("click", () => {
-      box.classList.remove("active");
+    close.addEventListener('click', () => {
+      box.classList.remove('active');
     });
   }
 
   // Enviar con Enter
-  input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
       e.preventDefault();
       boton.click();
     }
   });
 
   // Click en botón
-  boton.addEventListener("click", () => {
+  boton.addEventListener('click', () => {
     const mensaje = input.value.trim();
     if (!mensaje) return;
 
     agregarMensajeUsuario(mensaje);
-    input.value = "";
+    input.value = '';
     consultarGeminis(mensaje);
   });
 
   // --- Función para mostrar mensaje del usuario ---
   function agregarMensajeUsuario(texto) {
-    const msgDiv = document.createElement("div");
-    msgDiv.className = "user-msg";
+    const msgDiv = document.createElement('div');
+    msgDiv.className = 'user-msg';
     msgDiv.textContent = texto;
     messages.appendChild(msgDiv);
     messages.scrollTop = messages.scrollHeight;
@@ -47,13 +47,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Función para mostrar respuesta del bot ---
   function agregarMensajeBot(texto) {
-    const msgDiv = document.createElement("div");
-    msgDiv.className = "bot-msg";
+    const msgDiv = document.createElement('div');
+    msgDiv.className = 'bot-msg';
     // Soporta texto con saltos de línea
     msgDiv.innerHTML = texto
-      .split("\n")
+      .split('\n')
       .map((l) => `<p>${escapeHtml(l)}</p>`)
-      .join("");
+      .join('');
     messages.appendChild(msgDiv);
     messages.scrollTop = messages.scrollHeight;
   }
@@ -61,17 +61,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // Escape simple para evitar inyecciones accidentales
   function escapeHtml(unsafe) {
     return unsafe
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
   }
 
   // --- Indicador de escritura (puntos animados) ---
   function addTypingIndicator() {
-    const indicator = document.createElement("div");
-    indicator.className = "bot-msg typing-indicator";
+    const indicator = document.createElement('div');
+    indicator.className = 'bot-msg typing-indicator';
     indicator.innerHTML = `
             <div class="typing-dots" aria-hidden="true">
                 <span></span><span></span><span></span>
@@ -93,10 +93,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Consulta a Gemini (Google Generative Language API) ---
   async function consultarGeminis(pregunta) {
-    console.log("Consultando Gemini con:", pregunta);
+    console.log('Consultando Gemini con:', pregunta);
 
     // <-- Reemplazá por tu propia API_KEY o mantené la que ya tengas en el proyecto -->
-    const API_KEY = "AIzaSyC1r4kzO3JAnbOose1OFkCS_bNGZ6CEDJg";
+    const API_KEY = 'miapikey';
     const url = `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-pro:generateContent?key=${API_KEY}`;
 
     const requestBody = {
@@ -111,44 +111,44 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       const resp = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(requestBody),
       });
 
       if (!resp.ok) {
         // Si la API devuelve un error HTTP
         const text = await resp.text();
-        console.error("Error HTTP:", resp.status, text);
+        console.error('Error HTTP:', resp.status, text);
         removeTypingIndicator(typing);
         agregarMensajeBot(
-          "❌ Error al comunicar con el servicio (HTTP " + resp.status + ")."
+          '❌ Error al comunicar con el servicio (HTTP ' + resp.status + ').'
         );
         return;
       }
 
       const json = await resp.json();
-      console.log("Respuesta JSON completa:", json);
+      console.log('Respuesta JSON completa:', json);
 
       const parts = json?.candidates?.[0]?.content?.parts;
       if (!parts || !parts.length) {
         removeTypingIndicator(typing);
         agregarMensajeBot(
-          "❌ No pude obtener una respuesta, intentá de nuevo."
+          '❌ No pude obtener una respuesta, intentá de nuevo.'
         );
         return;
       }
 
-      const texto = parts.map((p) => p.text || "").join("\n");
-      console.log("Respuesta de Gemini:", texto);
+      const texto = parts.map((p) => p.text || '').join('\n');
+      console.log('Respuesta de Gemini:', texto);
 
       // Quitar indicador y mostrar respuesta del bot
       removeTypingIndicator(typing);
       agregarMensajeBot(texto);
     } catch (error) {
-      console.error("Error al consultar Gemini:", error);
+      console.error('Error al consultar Gemini:', error);
       removeTypingIndicator(typing);
-      agregarMensajeBot("⚠️ Ocurrió un error al consultar AMIBOT.");
+      agregarMensajeBot('⚠️ Ocurrió un error al consultar AMIBOT.');
     }
   }
 });
