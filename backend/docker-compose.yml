@@ -7,3 +7,5 @@ services:
     env_file:
       - .env
     restart: unless-stopped
+    volumes:
+      - /srv/amibot/materials:/srv/amibot/materials
