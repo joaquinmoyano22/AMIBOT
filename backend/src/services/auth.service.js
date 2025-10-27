@@ -16,13 +16,14 @@ export async function registerUser({ email, password }) {
 }
 
 export async function loginUser({ email, password }) {
-  const q = `SELECT id, password FROM users WHERE email = $1 LIMIT 1;`;
+  const q = `SELECT id, password, name, is_admin FROM users WHERE email = $1 LIMIT 1;`;
   const { rows } = await pool.query(q, [email.toLowerCase()]);
   if (rows.length === 0) return null;
 
   const user = rows[0];
+  console.log(user);
   const ok = await comparePassword(password, user.password);
   if (!ok) return null;
 
-  return { id: user.id };
+  return { id: user.id, name: user.name, isAdmin: user.is_admin };
 }
