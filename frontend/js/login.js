@@ -27,11 +27,12 @@ form.addEventListener('submit', async (e) => {
 
     // En lugar de ir directamente a main.php, llamamos a un callback PHP
     // que crea la sesión en el servidor y luego redirige a main.php.
-    const userName = data.name || data.nombre || data.username || data.user || '';
+    const name = data.name;
+    const is_admin = data.isAdmin;
     let callbackUrl = `./php/login_callback.php?id=${encodeURIComponent(
       data.id
-    )}`;
-    if (userName) callbackUrl += `&name=${encodeURIComponent(userName)}`;
+    )}&name=${encodeURIComponent(name)}&is_admin=${encodeURIComponent(is_admin)}`;
+    if (name) callbackUrl += `&name=${encodeURIComponent(name)}`;
     window.location.href = callbackUrl;
   } catch (err) {
     console.error(err);

@@ -1,7 +1,7 @@
 <?php
 session_start();
-$nombre = $_SESSION["nombre"] ?? null;
-$isAdmin = $_SESSION['isAdmin'] ?? null;
+$name = $_SESSION["name"] ?? null;
+$is_admin = $_SESSION["is_admin"] ?? null;
 $id = $_SESSION['id'] ?? null;
 ?>
 
@@ -24,7 +24,7 @@ $id = $_SESSION['id'] ?? null;
   include 'nav_bar.php';
   ?>
   <?php
-  if ($isAdmin == 0) {
+  if ($is_admin == 'false') {
     ?>
     <!-- HEADER -->
     <header class="header">
@@ -126,7 +126,7 @@ $id = $_SESSION['id'] ?? null;
 
 
     <?php
-  } elseif ($isAdmin == 1) {
+  } elseif ($is_admin == 'true') {
     ?>
     <!-- HEADER -->
     <header class="header">
@@ -143,7 +143,7 @@ $id = $_SESSION['id'] ?? null;
         <a href="#" class="tab">Competencias</a>
       </div>
 
-      <?php if ($isAdmin == 1): ?>
+      <?php if ($is_admin == 'true'): ?>
         <div class="tabs-right">
           <!-- Botón para abrir modal de subida de PDF -->
           <button class="btn-subir-archivo" onclick="document.getElementById('modalSubirArchivo').style.display='flex'">
