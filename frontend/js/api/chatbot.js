@@ -43,6 +43,10 @@ document.addEventListener("DOMContentLoaded", () => {
     msgDiv.textContent = texto;
     messages.appendChild(msgDiv);
     messages.scrollTop = messages.scrollHeight;
+
+    // Guardar mensaje del usuario (mauri y luana)
+    if (window.saveMessage) window.saveMessage(texto, 'user');
+
   }
 
   // --- Función para mostrar respuesta del bot ---
@@ -56,6 +60,9 @@ document.addEventListener("DOMContentLoaded", () => {
       .join("");
     messages.appendChild(msgDiv);
     messages.scrollTop = messages.scrollHeight;
+
+    // Guardar respuesta del bot (MAURI Y LUANA)
+  if (window.saveMessage) window.saveMessage(texto, 'assistant');
   }
 
   // Escape simple para evitar inyecciones accidentales

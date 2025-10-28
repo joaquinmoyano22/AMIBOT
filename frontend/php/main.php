@@ -70,6 +70,7 @@ $id = $_SESSION['id'] ?? null;
 
 </body>
 
+<script src="./../js/api/cacheAPI.js"></script>
 <script src="./../js/api/chatbot.js"></script>
 
 </html>

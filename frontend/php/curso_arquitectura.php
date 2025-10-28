@@ -353,6 +353,7 @@ include 'footer.php';
 
   });
 </script>
+<script src="../js/api/cacheAPI.js"></script>
 <script src="../js/api/chatbot.js"></script>
 
 </body>
