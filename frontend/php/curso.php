@@ -1,9 +1,10 @@
 <?php
 session_start();
 
-$nombre = $_SESSION["nombre"] ?? null;
-$isAdmin = $_SESSION['isAdmin'] ?? null;
+$name = $_SESSION["name"] ?? null;
+$is_admin = $_SESSION['is_admin'] ?? null;
 $id = $_SESSION['id'] ?? null;
+
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +25,7 @@ $id = $_SESSION['id'] ?? null;
   include 'nav_bar.php';
   ?>
   <?php
-  if ($isAdmin == 0) {
+  if ($is_admin == 'false') {
     ?>
 
     <section class="cursos-container">
@@ -191,7 +192,7 @@ $id = $_SESSION['id'] ?? null;
     ?>
 
     <?php
-  } elseif ($isAdmin == 1) {
+  } elseif ($is_admin == 'true') {
     ?>
     <section class="cursos-container">
 

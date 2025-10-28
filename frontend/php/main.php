@@ -2,8 +2,8 @@
 session_start();
 
 // Si no hay 'nombre' en la sesión, permitir usar 'id' (establecido por login_callback.php)
-$nombre = $_SESSION["nombre"] ?? null;
-$isAdmin = $_SESSION['isAdmin'] ?? null;
+$name = $_SESSION["name"] ?? null;
+$is_admin = $_SESSION['is_admin'] ?? null;
 $id = $_SESSION['id'] ?? null;
 ?>
 
@@ -29,6 +29,7 @@ $id = $_SESSION['id'] ?? null;
   include 'nav_bar.php';
   ?>
 
+  
   <!-- HERO -->
   <section class="hero">
     <h1 class="hero-title">¿Ya conociste a AMIBOT?</h1>

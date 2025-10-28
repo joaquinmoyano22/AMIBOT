@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +24,7 @@
     </div>
     <div class="nav-right">
       <!-- Este link abre el modal -->
-      <a href="#" id="openModal" class="login-link"><span class="icon">👤</span><?php echo $nombre; ?></a>
+      <a href="#" id="openModal" class="login-link"><span class="icon">👤</span><?php echo $name; ?></a>
     </div>
   </nav>
 </body>

@@ -2,21 +2,23 @@
 // Recibe id (y opcionalmente name) por GET, crea la sesión PHP y redirige a main.php
 session_start();
 
-$id = isset($_GET['id']) ? trim($_GET['id']) : null;
-$nombre = isset($_GET['nombre']) ? trim($_GET['nombre']) : null;
-$isAdmin = isset($_GET['isAdmin']) ? trim($_GET['isAdmin']) : null;
+$id = isset($_GET['id']) ? $_GET['id'] : null;
+$name = isset($_GET['name']) ? $_GET['name'] : null;
+$is_admin = isset($_GET['is_admin']) ? $_GET['is_admin'] : null;
+
+
 
 if ($id) {
   // Guardamos el id en la sesión
   $_SESSION['id'] = $id;
 
   // Si viene nombre, lo guardamos como 'nombre' para compatibilidad con main.php
-  if ($nombre !== null && $nombre !== '') {
-    $_SESSION['nombre'] = $nombre;
+  if ($name !== null && $name !== '') {
+    $_SESSION['name'] = $name;
   }
   // Si viene nombre, lo guardamos como 'nombre' para compatibilidad con main.php
-  if ($isAdmin !== null && $isAdmin !== '') {
-    $_SESSION['isAdmin'] = $isAdmin;
+  if ($is_admin !== null && $is_admin !== '') {
+    $_SESSION['is_admin'] = $is_admin;
   }
 }
 
