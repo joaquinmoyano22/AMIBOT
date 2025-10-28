@@ -1,27 +1,27 @@
 import { pool } from '../db/index.js';
 import { hashPassword, comparePassword } from '../utils/password.js';
 
-export async function registerUser({ email, password }) {
+export async function registerUser({ name, email, password }) {
   const hashed = await hashPassword(password);
 
   const query = `
-    INSERT INTO users (email, password)
-    VALUES ($1, $2)
+    INSERT INTO public."users" (name, email, password)
+    VALUES ($1, $2, $3)
     RETURNING id;
   `;
-  const values = [email.toLowerCase(), hashed];
+  const values = [name ?? null, email.toLowerCase(), hashed];
 
   const { rows } = await pool.query(query, values);
-  return rows[0]; // { id }
+  const user = rows[0];
+  return { id: user.id };
 }
 
 export async function loginUser({ email, password }) {
-  const q = `SELECT id, password, name, is_admin FROM users WHERE email = $1 LIMIT 1;`;
+  const q = `SELECT id, password, name , is_admin FROM users WHERE email = $1 LIMIT 1;`;
   const { rows } = await pool.query(q, [email.toLowerCase()]);
   if (rows.length === 0) return null;
 
   const user = rows[0];
-  console.log(user);
   const ok = await comparePassword(password, user.password);
   if (!ok) return null;
 

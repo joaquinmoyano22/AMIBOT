@@ -2,6 +2,7 @@ import { z } from 'zod';
 import { registerUser, loginUser } from '../services/auth.service.js';
 
 const registerSchema = z.object({
+  name: z.string().min(1),
   email: z.email(),
   password: z.string().min(8),
 });
@@ -17,8 +18,8 @@ export const AuthController = {
 
   async register(req, res, next) {
     try {
-      const { email, password } = req.data;
-      const { id } = await registerUser({ email, password });
+      const { name, email, password } = req.data;
+      const { id } = await registerUser({ name, email, password });
       return res.status(201).json({ id });
     } catch (err) {
       return next(err);
